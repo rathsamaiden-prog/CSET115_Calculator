@@ -44,15 +44,15 @@ function clickBtn(calcBtn)
 
     console.log(`button clicked: ${calcBtn.innerText} class: ${calcBtn.className}`)
 
-    if(calcBtn.className === "number-btn")
+    if(calcBtn.className.includes("number-btn"))
     {
         calcNumber(calcBtn.innerText);
     }
-    else if(calcBtn.className === "operator-btn")
+    else if(calcBtn.className.includes("operator-btn"))
     {
         calcOp(calcBtn.innerHTML);
     }
-    else if(calcBtn.className === "equal-btn")
+    else if(calcBtn.className.includes("equal-btn"))
     {
         evaluate();
     }
