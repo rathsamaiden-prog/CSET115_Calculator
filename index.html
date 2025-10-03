@@ -9,40 +9,43 @@
 <body>
     <div id="calculator">
         <div id="header">
-            <h1>Calculator</h1>
-            <h1>History</h1>
+            <h1 id="calcTitle">Calculator</h1>
+            <h1 id="historyTitle">History</h1>
         </div>
-        <div id="typeFrame-Wrapper">
-            <h1 id="display-num"></h1>
-        </div>
-        <div id="btnFrame-Wrapper">
-            <button class="operator-btn">%</button>
-            <button class="operator-btn">CE</button>
-            <button class="operator-btn">C</button>
-            <button class="operator-btn"><ion-icon name="backspace-outline"></ion-icon></button>
-            <button class="operator-btn"><sup>1</sup>x</button>
-            <button class="operator-btn">x<sup>2</sup></button>
-            <button class="operator-btn">sqRoot</button>
-            <button class="operator-btn">/</button>
-            <button class="number-btn">7</button>
-            <button class="number-btn">8</button>
-            <button class="number-btn">9</button>
-            <button class="operator-btn">x</button>
-            <button class="number-btn">4</button>
-            <button class="number-btn">5</button>
-            <button class="number-btn">6</button>
-            <button class="operator-btn">-</button>
-            <button class="number-btn">1</button>
-            <button class="number-btn">2</button>
-            <button class="number-btn">3</button>
-            <button class="operator-btn">+</button>
-            <button class="number-btn">+/-</button>
-            <button class="number-btn">0</button>
-            <button class="number-btn">.</button>
-            <button class="operator-btn">=</button>
+        <div id="type_btn-Wrapper">
+            <div id="typeFrame-Wrapper">
+                <p id="display-equation"></p>
+                <h1 id="display-num"></h1>
+            </div>
+            <div id="btnFrame-Wrapper">
+                <button class="operator-btn">%</button>
+                <button class="operator-btn">CE</button>
+                <button class="operator-btn">C</button>
+                <button class="operator-btn"><ion-icon name="backspace-outline"></ion-icon></button>
+                <button class="operator-btn"><sup>1</sup>x</button>
+                <button class="operator-btn">x<sup>2</sup></button>
+                <button class="operator-btn">sqRoot</button>
+                <button class="operator-btn">/</button>
+                <button class="number-btn">7</button>
+                <button class="number-btn">8</button>
+                <button class="number-btn">9</button>
+                <button class="operator-btn">x</button>
+                <button class="number-btn">4</button>
+                <button class="number-btn">5</button>
+                <button class="number-btn">6</button>
+                <button class="operator-btn">-</button>
+                <button class="number-btn">1</button>
+                <button class="number-btn">2</button>
+                <button class="number-btn">3</button>
+                <button class="operator-btn">+</button>
+                <button class="number-btn">+/-</button>
+                <button class="number-btn">0</button>
+                <button class="number-btn">.</button>
+                <button class="operator-btn" id="equalBtn">=</button>
+            </div>
         </div>
         <div id="historyFrame-Wrapper">
-            
+            history
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
