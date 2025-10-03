@@ -21,9 +21,14 @@
 }
 #calcTitle{
     width: 65%;
+    padding-left: 2%;
+    font-size: 21pt;
 }
 #historyTitle{
-    width: 35%;
+    margin-left: 18%;
+    width: fit-content;
+    border-bottom: 3px solid rgb(62, 92, 226);
+    font-size: 21pt;
 }
 /*-----------ARITH & DISPLAY-----------*/
 #type_btn-Wrapper{
@@ -35,36 +40,47 @@
     flex-wrap: wrap;
     width: 100%;
     height: 70%;
+    padding: 0 0 1% 1%;
 }
-.operator-btn{
+.grey-btn{
     width: 24.4%;
     height: auto;
     margin: 0.3%;
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(239, 237, 237);
 }
-.number-btn{
+.number-btn, #posNeg{
     width: 24.4%;
     height: auto;
     margin: 0.3%;
     background-color: white;
     border: 1px solid white;
 }
-#equalBtn{
+.equal-btn{
+    width: 24.4%;
+    height: auto;
+    margin: 0.3%;
     background-color: rgb(168, 189, 246);
     border: 1px solid rgb(168, 189, 246);
 }
 /*DISPLAY*/
 #typeFrame-Wrapper{
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    outline: solid;
+    text-align: right;
     font-size: 20pt;
-    width: 100%;
     height: 30%;
+    width: calc(100% - 5%);
+    padding-left: 5%;
+    margin-left: 5%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+#display-equation{
+    font-size: 12pt;
 }
 /*-----------HISTORY-----------*/
 #historyFrame-Wrapper{
+    padding: 5% 0 0 5%;
     width: 35%;
     height: 95%;
 }
