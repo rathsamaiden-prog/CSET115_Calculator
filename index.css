@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#calculator{
+    display: flex;
+    background-color: rgb(233, 231, 231);
+    width: 75vh;
+    height: 90vh;
+    margin: 2% auto;
+}
