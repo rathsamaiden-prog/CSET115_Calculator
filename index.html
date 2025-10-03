@@ -9,13 +9,16 @@
 <body>
     <div id="calculator">
         <div id="header">
-            <h1>Calculator</h1>
-            <h1>History</h1>
+            <h1 id="calcTitle">Calculator</h1>
+            <h1 id="historyTitle">History</h1>
         </div>
-        <div id="typeFrame-Wrapper">
-            <h1 id="display-num"></h1>
-        </div>
-        <div id="btnFrame-Wrapper">
+
+        <div id="type_btn-Wrapper">
+            <div id="typeFrame-Wrapper">
+                <p id="display-equation"></p>
+                <h1 id="display-num"></h1>
+            </div>
+            <div id="btnFrame-Wrapper">
             <button class="operator-btn" onclick="clickBtn(this)">%</button>
             <button class="clearentry-btn" onclick="clickBtn(this)">CE</button>
             <button class="clear-btn" onclick="clickBtn(this)">C</button>
@@ -40,9 +43,10 @@
             <button class="number-btn" onclick="clickBtn(this)">0</button>
             <button class="number-btn" onclick="clickBtn(this)">.</button>
             <button class="equal-btn" onclick="clickBtn(this)">=</button>
+            </div>
         </div>
         <div id="historyFrame-Wrapper">
-            
+            history
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

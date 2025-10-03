@@ -5,8 +5,66 @@
 }
 #calculator{
     display: flex;
+    flex-wrap: wrap;
     background-color: rgb(233, 231, 231);
     width: 75vh;
     height: 90vh;
     margin: 2% auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*-----------HEADER-----------*/
+#header{
+    display: flex;
+    width: 100%;
+    height: 5%;
+}
+#calcTitle{
+    width: 65%;
+}
+#historyTitle{
+    width: 35%;
+}
+/*-----------ARITH & DISPLAY-----------*/
+#type_btn-Wrapper{
+    width: 65%;
+}
+/*BUTTONS*/
+#btnFrame-Wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 70%;
+}
+.operator-btn{
+    width: 24.4%;
+    height: auto;
+    margin: 0.3%;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(239, 237, 237);
+}
+.number-btn{
+    width: 24.4%;
+    height: auto;
+    margin: 0.3%;
+    background-color: white;
+    border: 1px solid white;
+}
+#equalBtn{
+    background-color: rgb(168, 189, 246);
+    border: 1px solid rgb(168, 189, 246);
+}
+/*DISPLAY*/
+#typeFrame-Wrapper{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 20pt;
+    width: 100%;
+    height: 30%;
+}
+/*-----------HISTORY-----------*/
+#historyFrame-Wrapper{
+    width: 35%;
+    height: 95%;
 }
