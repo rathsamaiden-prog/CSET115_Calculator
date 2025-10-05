@@ -25,14 +25,13 @@
     font-size: 21pt;
 }
 #historyTitle{
-    margin-left: 18%;
     width: fit-content;
     border-bottom: 3px solid rgb(62, 92, 226);
     font-size: 21pt;
 }
 /*-----------ARITH & DISPLAY-----------*/
 #type_btn-Wrapper{
-    width: 65%;
+    width: 60%;
 }
 /*BUTTONS*/
 #btnFrame-Wrapper{
@@ -65,22 +64,25 @@
 }
 /*DISPLAY*/
 #typeFrame-Wrapper{
-    outline: solid;
     text-align: right;
     font-size: 20pt;
     height: 30%;
-    width: calc(100% - 5%);
-    padding-left: 5%;
+    width: 265px;
     margin-left: 5%;
-    overflow-x: auto;
-    white-space: nowrap;
+    padding-top: 15%;
 }
 #display-equation{
     font-size: 12pt;
+    direction: rtl;
+    overflow-x: auto;
+}
+#display-num{
+    direction: rtl;
+    overflow-x: auto;
 }
 /*-----------HISTORY-----------*/
 #historyFrame-Wrapper{
     padding: 5% 0 0 5%;
-    width: 35%;
+    width: 40%;
     height: 95%;
 }
