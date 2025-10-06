@@ -56,6 +56,15 @@ function clickBtn(calcBtn)
     {
         evaluate();
     }
+    else if(calcBtn.className.includes("clearentry-btn"))
+    {
+        clearEntry();
+    }
+    else if(calcBtn.className.includes("clear-btn"))
+    {
+        clear();
+
+    }
 
     lastInput = calcBtn.className;
 }
@@ -151,6 +160,8 @@ function evaluate()
 
 function setDisplayEquation(num1, operator, num2 ="")
 {
+
+    console.log(`num1: ${num1}, num2: ${num2}, operator: ${operator}`)
     if(operator === operators.sqRoot)
     {
         return `&radic;(${num2})`;
@@ -171,4 +182,18 @@ function setDisplayEquation(num1, operator, num2 ="")
     {
         return num1 + operator + num2;
     }
+}
+
+function clear()
+{
+    displayNum.innerText = "0";
+    displayEquation.innerHTML = "";
+    currentState = calcStates.firstInput;
+    currentOperator = operators.none;
+
+}
+
+function clearEntry()
+{
+    displayNum.innerText = "0";
 }
