@@ -40,8 +40,6 @@ let currentOperator = operators.none;
 
 let lastInput = null;
 
-
-
 function clickBtn(calcBtn)
 {
     //handles button inputs
@@ -86,7 +84,6 @@ function clickBtn(calcBtn)
 function calcNumber(num)
 {
     //takes a number from the button input and updates the display and stored nums
-
 
     if(displayNum.innerText === "0") //replaces "0" so that it doesnt display 07 instead of 7
     {
@@ -138,8 +135,14 @@ function evaluate()
     console.log(secondNum)
     let result = 0;
 
-    displayEquation.innerHTML = setDisplayEquation(firstNum, currentOperator, secondNum)+"=";
+    let floorNums = {
+        floorFirst: firstNum.slice(0, firstNum.indexOf(`.`)) + firstNum.slice(firstNum.indexOf(`.`), firstNum.indexOf(`.`) + 6),
+        floorSecond: secondNum.slice(0, secondNum.indexOf(`.`)) + secondNum.slice(secondNum.indexOf(`.`), secondNum.indexOf(`.`) + 6)
+    };
+
+    displayEquation.innerHTML = setDisplayEquation(floorNums.floorFirst, currentOperator, floorNums.floorSecond)+"=";
     console.log(currentOperator)
+
     if(currentOperator === operators.add)
     {
         result = Number(firstNum) + Number(secondNum);
@@ -176,9 +179,12 @@ function evaluate()
     {
         result = 1/Number(secondNum);
     }
-    let historyEquation = displayEquation.innerHTML + result;
+
+    let floorResult = String(result).slice(0, String(result).indexOf(`.`)) + String(result).slice(String(result).indexOf(`.`), String(result).indexOf(`.`) + 6)
+
+    let historyEquation =  displayEquation.innerHTML + floorResult;
     historyFrame.innerHTML += `<br>` + historyEquation;
-    console.log(result)
+
     displayNum.innerText = String(result);
 
 }
