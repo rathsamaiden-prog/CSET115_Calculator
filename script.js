@@ -266,7 +266,13 @@ function backspace()
 
 function inputHandler(event)
 {
-    console.log(event.key)
+    if(event.repeat)
+    {
+        return;
+    }
+
+    console.log(`${event.key} pressed`)
+    
     if(!isNaN(Number(event.key)) || event.key === ".")
     {
         calcNumber(event.key);
