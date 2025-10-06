@@ -8,6 +8,8 @@ let displayNum = document.getElementById("display-num");
 
 let displayEquation = document.getElementById("display-equation");
 
+let historyFrame = document.getElementById("historyFrame-Wrapper");
+
 displayNum.innerText = "0";
 
 let firstNum = "0";
@@ -174,6 +176,8 @@ function evaluate()
     {
         result = 1/Number(secondNum);
     }
+    let historyEquation = displayEquation.innerHTML + result;
+    historyFrame.innerHTML += `<br>` + historyEquation;
     console.log(result)
     displayNum.innerText = String(result);
 
@@ -211,7 +215,6 @@ function clear()
     displayEquation.innerHTML = "";
     currentState = calcStates.firstInput;
     currentOperator = operators.none;
-
 }
 
 function clearEntry()
