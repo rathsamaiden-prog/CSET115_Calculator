@@ -62,6 +62,30 @@
     background-color: rgb(168, 189, 246);
     border: 1px solid rgb(168, 189, 246);
 }
+.grey-btn:hover{
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(230, 230, 230);
+}
+.grey-btn:active{
+    background-color: rgb(233, 233, 233);
+    border: 1px solid rgb(220, 220, 220);
+}
+.number-btn:hover, #posNeg:hover{
+    background-color: rgb(252,252,252);
+    border: 1px solid rgb(244, 244, 244);
+}
+.number-btn:active, #posNeg:active{
+    background-color: rgb(247,247,247);
+    border: 1px solid rgb(234, 234, 234);
+}
+.equal-btn:hover{
+    background-color: rgb(165, 186, 243);
+    border: 1px solid rgb(157, 178, 235);
+}
+.equal-btn:active{
+    background-color: rgb(160, 181, 238);
+    border: 1px solid rgb(147, 168, 225);
+}
 /*DISPLAY*/
 #typeFrame-Wrapper{
     text-align: right;
@@ -83,4 +107,6 @@
     padding: 5% 0 0 5%;
     width: 40%;
     height: 95%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
 }
