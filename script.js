@@ -51,27 +51,35 @@ function clickBtn(calcBtn)
     if(calcBtn.className.includes("number-btn"))
     {
         calcNumber(calcBtn.innerText);
+        lastInput = "number-btn";
     }
     else if(calcBtn.className.includes("operator-btn"))
     {
         calcOp(calcBtn.innerHTML);
+        lastInput = "operator-btn";
     }
     else if(calcBtn.className.includes("equal-btn"))
     {
         evaluate();
-
+        lastInput = "equal-btn";
     }
     else if(calcBtn.className.includes("clearentry-btn"))
     {
         clearEntry();
+        lastInput = "clearentry-btn";
     }
     else if(calcBtn.className.includes("clear-btn"))
     {
         clear();
-
+        lastInput = "clear-btn";
+    }
+    else if(calcBtn.className.includes("backspace-btn"))
+    {
+        backspace();
+        lastInput = "backspace-btn";
     }
 
-    lastInput = calcBtn.className;
+    //lastInput = calcBtn.className;
     console.log(lastInput)
 }
 
@@ -118,7 +126,15 @@ function calcOp(operator)
 
 function evaluate()
 {
-    secondNum = displayNum.innerText;
+    if(lastInput === "equal-btn")
+    {
+        firstNum = displayNum.innerText;
+    }
+    else
+    {
+        secondNum = displayNum.innerText;
+    }
+
     console.log(secondNum)
     let result = 0;
 
@@ -204,4 +220,19 @@ function clear()
 function clearEntry()
 {
     displayNum.innerText = "0";
+}
+
+function backspace()
+{
+    if(displayNum.innerText !== "0")
+    {
+        if(displayNum.innerText.length > 1)
+        {
+            displayNum.innerText = displayNum.innerText.slice(0, displayNum.innerText.length-1)
+        }
+        else
+        {
+            displayNum.innerText = "0"
+        }
+    }
 }
