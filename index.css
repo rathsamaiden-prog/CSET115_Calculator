@@ -73,7 +73,6 @@
 }
 #display-equation{
     font-size: 12pt;
-    direction: rtl;
     overflow-x: auto;
 }
 #display-num{
