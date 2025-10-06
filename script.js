@@ -121,7 +121,8 @@ function calcOp(operator)
         || operator === operators.square
         || operator === operators.invert)
     {
-        evaluate() //these operators do not wait for user to press = to evaluate
+        secondNum = displayNum.innerText;
+        evaluate(); //these operators do not wait for user to press = to evaluate
     }
     if(operator === operators.negative)
     {
