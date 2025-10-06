@@ -22,11 +22,13 @@ let operators =
     multiply: "x", 
     divide: "/",
     modulus: "%",
-    invert: "<sup>1</sup>x",
+    invert: "<sup>1</sup>/<sub>x</sub>",
     square: "x<sup>2</sup>",
-    sqRoot: "sqRoot",
+    sqRoot: "√x",
     negative: "+/-"
 };
+
+console.log(operators.sqRoot)
 
 let calcStates = {firstInput: 0, secondInput: 1}
 
@@ -67,6 +69,7 @@ function clickBtn(calcBtn)
     }
 
     lastInput = calcBtn.className;
+    console.log(lastInput)
 }
 
 function calcNumber(num)
@@ -113,10 +116,11 @@ function calcOp(operator)
 function evaluate()
 {
     secondNum = displayNum.innerText;
+    console.log(secondNum)
     let result = 0;
 
     displayEquation.innerHTML = setDisplayEquation(firstNum, currentOperator, secondNum)+"=";
-
+    console.log(currentOperator)
     if(currentOperator === operators.add)
     {
         result = Number(firstNum) + Number(secondNum);
@@ -153,7 +157,7 @@ function evaluate()
     {
         result = 1/Number(secondNum);
     }
-
+    console.log(result)
     displayNum.innerText = String(result);
 
 }
