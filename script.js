@@ -9,6 +9,8 @@ let displayNum = document.getElementById("display-num");
 
 let displayEquation = document.getElementById("display-equation");
 
+let historyFrame = document.getElementById("historyFrame-Wrapper");
+
 displayNum.innerText = "0";
 
 let firstNum = "0";
@@ -193,6 +195,9 @@ function evaluate()
         result = Number(secondNum);
     }
     console.log(result);
+    let historyEquation = displayEquation.innerHTML + result;
+    historyFrame.innerHTML += `<br>` + historyEquation;
+    console.log(result)
     displayNum.innerText = String(result);
 
 }
@@ -237,7 +242,6 @@ function clear()
     displayEquation.innerHTML = "";
     currentState = calcStates.firstInput;
     currentOperator = operators.none;
-
 }
 
 function clearEntry()
