@@ -190,6 +190,11 @@ function evaluate()
     {
         result = 1/Number(secondNum);
     }
+    else if(currentOperator === operators.none)
+    {
+        result = Number(secondNum);
+    }
+    console.log(result);
     let historyEquation = displayEquation.innerHTML + result;
     historyFrame.innerHTML += `<br>` + historyEquation;
     console.log(result)
@@ -220,6 +225,10 @@ function setDisplayEquation(num1, operator, num2 ="")
     {
         return `-(${num2})`;
     }
+    else if(operator === operators.none)
+    {
+        return num2;
+    }
     else
     {
         return num1 + operator + num2;
@@ -229,6 +238,7 @@ function setDisplayEquation(num1, operator, num2 ="")
 function clear()
 {
     displayNum.innerText = "0";
+    firstNum = "0";
     displayEquation.innerHTML = "";
     currentState = calcStates.firstInput;
     currentOperator = operators.none;
@@ -257,7 +267,7 @@ function backspace()
 function inputHandler(event)
 {
     console.log(event.key)
-    if(!isNaN(Number(event.key)))
+    if(!isNaN(Number(event.key)) || event.key === ".")
     {
         calcNumber(event.key);
         lastInput = "number-btn"
