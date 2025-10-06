@@ -2,6 +2,7 @@
 ////////////// INIT ////////////////
 ////////////////////////////////////
 
+addEventListener('keydown', inputHandler);
 
 
 let displayNum = document.getElementById("display-num");
@@ -29,8 +30,6 @@ let operators =
     sqRoot: "√x",
     negative: "+/-"
 };
-
-console.log(operators.sqRoot)
 
 let calcStates = {firstInput: 0, secondInput: 1}
 
@@ -78,7 +77,7 @@ function clickBtn(calcBtn)
     }
 
     //lastInput = calcBtn.className;
-    console.log(lastInput)
+    console.log(`last input: ${lastInput}`)
 }
 
 function calcNumber(num)
@@ -103,20 +102,36 @@ function calcNumber(num)
 function calcOp(operator)
 {
     //takes an operator from the button input and updates the display and state
-    currentOperator = operator;
-    currentState = calcStates.secondInput;
 
 
     firstNum = displayNum.innerText;
 
-    displayEquation.innerHTML = setDisplayEquation(firstNum, currentOperator);
+    
+    if(operator !== operators.negative)
+        {
+            currentOperator = operator;
+            currentState = calcStates.secondInput;
+            displayEquation.innerHTML = setDisplayEquation(firstNum, currentOperator);
+        }
 
-    if(operator === operators.negative 
-        || operator === operators.sqRoot
+    if( operator === operators.sqRoot
         || operator === operators.square
         || operator === operators.invert)
     {
-        evaluate() //these operators do not wait for user to press = to evaluate
+        secondNum = displayNum.innerText;
+        evaluate(); //these operators do not wait for user to press = to evaluate
+    }
+    if(operator === operators.negative)
+    {
+        if(currentState === calcStates.firstInput)
+        {
+            currentOperator = operator
+            evaluate();
+        }
+        else
+        {
+            displayNum.innerText = String(Number(displayNum.innerText)*-1);
+        }
     }
 
 }
@@ -179,6 +194,10 @@ function evaluate()
     {
         result = 1/Number(secondNum);
     }
+    else if(currentOperator === operators.none)
+    {
+        result = Number(secondNum);
+    }
 
     let floorResult = String(result).slice(0, String(result).indexOf(`.`)) + String(result).slice(String(result).indexOf(`.`), String(result).indexOf(`.`) + 6)
 
@@ -191,7 +210,10 @@ function evaluate()
 
 function setDisplayEquation(num1, operator, num2 ="")
 {
-
+    if(num2[0] === "-")
+    {
+        num2 = `(${num2})`
+    }
     console.log(`num1: ${num1}, num2: ${num2}, operator: ${operator}`)
     if(operator === operators.sqRoot)
     {
@@ -209,6 +231,10 @@ function setDisplayEquation(num1, operator, num2 ="")
     {
         return `-(${num2})`;
     }
+    else if(operator === operators.none)
+    {
+        return num2;
+    }
     else
     {
         return num1 + operator + num2;
@@ -218,6 +244,7 @@ function setDisplayEquation(num1, operator, num2 ="")
 function clear()
 {
     displayNum.innerText = "0";
+    firstNum = "0";
     displayEquation.innerHTML = "";
     currentState = calcStates.firstInput;
     currentOperator = operators.none;
@@ -240,5 +267,56 @@ function backspace()
         {
             displayNum.innerText = "0"
         }
+    }
+}
+
+function inputHandler(event)
+{
+    if(event.repeat)
+    {
+        return;
+    }
+
+    console.log(`${event.key} pressed`)
+    
+    if(!isNaN(Number(event.key)) || event.key === ".")
+    {
+        calcNumber(event.key);
+        lastInput = "number-btn"
+    }
+    else if(event.key === "Enter" || event.key === "=")
+    {
+        evaluate()
+        lastInput = "equal-btn";
+    }
+    else if(event.key === "Backspace")
+    {
+        backspace();
+        lastInput = "backspace-btn";
+    }
+    else if(event.key === "+")
+    {
+        calcOp(operators.add)
+        lastInput = "operator-btn"
+    }
+    else if(event.key === "-")
+    {
+        calcOp(operators.subtract)
+        lastInput = "operator-btn"
+    }
+    else if(event.key === "*")
+    {
+        calcOp(operators.multiply)
+        lastInput = "operator-btn"
+    }
+    else if(event.key === "/")
+    {
+        calcOp(operators.divide)
+        lastInput = "operator-btn"
+    }
+    else if(event.key === "%")
+    {
+        calcOp(operators.modulus)
+        lastInput = "operator-btn"
     }
 }
